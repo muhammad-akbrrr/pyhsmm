@@ -114,7 +114,7 @@ setup(name='pyhsmm',
       keywords=['bayesian', 'inference', 'mcmc', 'time-series', 'monte-carlo',
                 'variational inference', 'mean field', 'vb'],
       install_requires=[
-          "numpy", "scipy", "matplotlib", "nose", "pybasicbayes >= 0.1.3", "future", "six"],
+          "numpy", "scipy", "matplotlib", "nose", "pybasicbayes @ git+https://github.com/muhammad-akbrrr/pybasicbayes.git", "future", "six"],
       setup_requires=['numpy', "future", "six"],
       ext_modules=ext_modules,
       classifiers=[
