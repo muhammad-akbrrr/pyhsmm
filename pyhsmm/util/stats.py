@@ -90,7 +90,7 @@ def mean(datalist):
     return getdata(datalist).mean(0)
 
 def cov(datalist):
-    return np.cov(getdata(datalist),rowvar=0,bias=1)
+    return np.cov(getdata(datalist),rowvar=False,bias=1)
 
 def whiten(datalist):
     mu, L = mean(datalist), np.linalg.cholesky(cov(datalist))

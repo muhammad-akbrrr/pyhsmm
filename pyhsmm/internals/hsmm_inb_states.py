@@ -211,7 +211,7 @@ class HSMMStatesIntegerNegativeBinomial(_HSMMStatesIntegerNegativeBinomialBase):
                 self.expected_durations[state] += \
                     np.bincount(
                             self.durations_censored[self.stateseq_norep == state],
-                            minlength=self.T)[:self.T].astype(np.double)/num_r_samples
+                            minlength=self.T)[:self.T].astype(np.float64)/num_r_samples
 
     def meanfieldupdate_Estep(self):
         # TODO bug in here? it's not as good as sampling
@@ -255,7 +255,7 @@ class HSMMStatesIntegerNegativeBinomial(_HSMMStatesIntegerNegativeBinomialBase):
                     self.expected_durations[state] += \
                         np.bincount(
                                 self.durations_censored[self.stateseq_norep == state],
-                                minlength=self.T)[:self.T].astype(np.double) \
+                                minlength=self.T)[:self.T].astype(np.float64) \
                             /(num_r_samples*num_stateseq_samples_per_r)
 
     def _hmm_stats_to_hsmm_stats(self,hmm_expected_states,hmm_expected_transcounts,normalizer):

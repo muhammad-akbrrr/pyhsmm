@@ -55,9 +55,9 @@ def sample_markov(
 
     cdef floating[::1] randseq
     if floating is double:
-        randseq = np.random.random(T).astype(np.double)
+        randseq = np.random.random(T).astype(np.float64)
     else:
-        randseq = np.random.random(T).astype(np.float)
+        randseq = np.random.random(T).astype(np.float64)
 
     cdef int t
     out[0] = csample_discrete_normalized(pi,randseq[0])
@@ -77,9 +77,9 @@ def sample_crp_tablecounts(
 
     cdef floating[::1] randseq
     if floating is double:
-        randseq = np.random.random(tot).astype(np.double)
+        randseq = np.random.random(tot).astype(np.float64)
     else:
-        randseq = np.random.random(tot).astype(np.float)
+        randseq = np.random.random(tot).astype(np.float64)
 
     tmp = np.empty_like(customers)
     tmp[0,0] = 0

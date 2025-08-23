@@ -58,9 +58,9 @@ def sample_forwards_log(
     # duration is deterministically 1
     cdef floating[:] randseq
     if floating is double:
-        randseq = np.random.random(size=2*caBl.shape[0]).astype(np.double)
+        randseq = np.random.random(size=2*caBl.shape[0]).astype(np.float64)
     else:
-        randseq = np.random.random(size=2*caBl.shape[0]).astype(np.float)
+        randseq = np.random.random(size=2*caBl.shape[0]).astype(np.float64)
 
     ref.sample_forwards_log(A.shape[0],caBl.shape[0],&A[0,0],&pi0[0],
             &caBl[0,0],&aDl[0,0],&betal[0,0],&betastarl[0,0],&stateseq[0],&randseq[0])
@@ -113,11 +113,11 @@ def resample_log_multiple(
     cdef floating[:] randseq
     cdef floating[:] loglikes
     if floating is double:
-        randseq = np.random.random(size=2*np.sum(Ts)).astype(np.double)
+        randseq = np.random.random(size=2*np.sum(Ts)).astype(np.float64)
         loglikes = np.empty(num,dtype=np.double)
     else:
-        randseq = np.random.random(size=2*np.sum(Ts)).astype(np.float)
-        loglikes = np.empty(num,dtype=np.float)
+        randseq = np.random.random(size=2*np.sum(Ts)).astype(np.float64)
+        loglikes = np.empty(num,dtype=np.float64)
 
     with nogil:
         for i in prange(num):
